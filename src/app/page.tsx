@@ -1,44 +1,47 @@
 import React from 'react';
+import Link from 'next/link';
 
 const HomePage = () => {
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="bg-blue-500 text-white text-3xl py-4 px-6 shadow-md">
-        <h1 className="font-semibold">Windows XP Retro</h1>
-      </header>
+    <div className="relative min-h-screen bg-cover bg-center" style={{ backgroundImage: "url('/notbliss.png')" }}>
+      
+      {/* Desktop Icons */}
+      <div className="absolute top-4 left-4 flex flex-col space-y-4">
+        <Link href="/blog" className="flex flex-col items-center cursor-pointer group">
+          <img src="/icons/Book Disc.ico" alt="My Blog" className="w-12 h-12 group-hover:scale-105 transition" />
+          <span className="text-white text-sm mt-1 text-center group-hover:underline">My Blog</span>
+        </Link>
+        <Link href="/about" className="flex flex-col items-center cursor-pointer group">
+          <img src="/icons/Builder.ico" alt="About Me" className="w-12 h-12 group-hover:scale-105 transition" />
+          <span className="text-white text-sm mt-1 text-center group-hover:underline">About Me</span>
+        </Link>
+        <Link href="/contact" className="flex flex-col items-center cursor-pointer group">
+          <img src="/icons/mail.ico" alt="Contact" className="w-12 h-12 group-hover:scale-105 transition" />
+          <span className="text-white text-sm mt-1 text-center group-hover:underline">Contact</span>
+        </Link>
+      </div>
 
-      {/* Navigation */}
-      <nav className="bg-gray-200 p-4 shadow-md">
-        <ul className="flex space-x-4">
-          <li><a href="/about" className="text-blue-600 hover:text-blue-800">About</a></li>
-          <li><a href="/blog" className="text-blue-600 hover:text-blue-800">Blog</a></li>
-          <li><a href="/contact" className="text-blue-600 hover:text-blue-800">Contact</a></li>
-        </ul>
-      </nav>
+      {/* Taskbar */}
+      <div className="fixed bottom-0 left-0 w-full">
+        <div className="window bg-gray-200 flex items-center justify-between h-12 border-t-2 border-gray-400">
+          {/* Start Button */}
+          <button className="flex items-center space-x-2 bg-green-600 text-white px-4 py-1 ml-2 rounded hover:bg-green-700">
+            <img src="/icons/start.png" alt="Start" className="w-5 h-5" />
+            <span className="font-bold">Start</span>
+          </button>
 
-      {/* Main Content */}
-      <main className="flex-grow px-6 py-8">
-        <section className="grid grid-cols-2 gap-6">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold text-blue-500">Welcome to the Retro Experience</h2>
-            <p>Experience the nostalgia of the Windows XP interface!</p>
-            {/* XP Styled Button */}
-            <div className="mt-4">
-              <button className="bg-blue-500 text-black px-4 py-2 rounded">XP Styled Button</button>
-            </div>
+          {/* Quick Launch / Middle */}
+          <div className="flex-1 flex items-center space-x-2 ml-4">
+            {/* Add more quick launch icons here if needed */}
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold text-blue-500">Start Your Journey</h2>
-            <p>Explore our various pages and resources.</p>
-          </div>
-        </section>
-      </main>
 
-      {/* Footer */}
-      <footer className="bg-blue-500 text-white text-center py-4">
-        <p className="text-sm">© 2025 Windows XP Retro</p>
-      </footer>
+          {/* Clock */}
+          <div className="mr-4 text-sm text-black">
+            {/* Static clock for now */}
+            3:14 PM
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
