@@ -7,7 +7,7 @@ const HomePage = () => {
       
       {/* Desktop Icons */}
       <div className="absolute top-4 left-4 flex flex-col space-y-4">
-        <Link href="/blog" className="flex flex-col items-center cursor-pointer group">
+        <Link href="/blog/homepage" className="flex flex-col items-center cursor-pointer group">
           <img src="/icons/Book Disc.ico" alt="My Blog" className="w-12 h-12 group-hover:scale-105 transition" />
           <span className="text-white text-sm mt-1 text-center group-hover:underline">My Blog</span>
         </Link>
