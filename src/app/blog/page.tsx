@@ -2,8 +2,8 @@ import { createClient } from 'contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const client = createClient({
-  space: 'gnid317kmek6', // Replace with your space ID
-  accessToken: 'bHTRIOuu1YE_QHpnJ5WzbWQY414gA24O52X-liN_Vc0', // Replace with your access token
+  space: '', // Replace with your space ID
+  accessToken: '', // Replace with your access token
 });
 
 const BlogPage = async () => {

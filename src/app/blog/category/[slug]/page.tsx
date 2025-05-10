@@ -7,8 +7,8 @@ import { createClient } from 'contentful';
 import Link from 'next/link';
 
 const client = createClient({
-  space: 'gnid317kmek6', // Replace with your space ID
-  accessToken: 'bHTRIOuu1YE_QHpnJ5WzbWQY414gA24O52X-liN_Vc0', // Replace with your access token
+  space: 'APIKEY', // Replace with your space ID
+  accessToken: 'apiKEY', // Replace with your access token
 });
 
 const CategoryPage = () => {
