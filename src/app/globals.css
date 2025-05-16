@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -25,3 +24,54 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Bevel effect with sharp corners */
+.bevel-left {
+  background: #384D88;
+  background: linear-gradient(90deg, 
+    rgba(56, 77, 136, 1) 0%, 
+    rgba(68, 99, 169, 1) 11%, 
+    rgba(66, 93, 164, 1) 35%, 
+    rgba(76, 108, 180, 1) 51%, 
+    rgba(53, 78, 134, 1) 66%, 
+    rgba(40, 61, 109, 1) 72%, 
+    rgba(40, 61, 109, 1) 87%, 
+    rgba(53, 78, 138, 1) 100%, 
+    rgba(69, 99, 175, 1) 100%
+  );
+  position: relative;
+  z-index: 10;
+   border-radius: 20px 8px 8px 20px; /* Asymmetric rounded corners */
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.3),  /* Depth shadow for sharpness */
+    -4px -4px 8px rgba(0, 0, 0, 0.2); /* Opposite shadow for sharpness */
+  transition: box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+  overflow: visible;
+}
+
+/* Hover effect with outer and inner glow using the gradient colors */
+.bevel-left:hover {
+  z-index: 20; /* Ensure it appears above other content */
+  box-shadow: 
+    0px 0px 30px 10px rgba(56, 133, 136, 0.3), /* Outer glow with reduced opacity */
+    inset 0px 0px 50px 10px rgba(56, 133, 136, 0.3); /* Inner glow with reduced opacity */
+  background: linear-gradient(90deg, rgba(56, 133, 136, 1) 0%, rgba(68, 154, 169, 1) 11%, rgba(66, 148, 164, 1) 35%, rgba(76, 173, 180, 1) 51%, rgba(45, 151, 186, 1) 66%, rgba(39, 143, 204, 1) 75%, rgba(39, 143, 204, 1) 87%, rgba(48, 166, 217, 1) 100%);
+}
+
+
+/* Info box */
+.hover-info-box {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-top: 0;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 0.875rem;
+  padding: 10px;
+  border-radius: 4px;
+  width: 300px;
+  height: 120px;
+  z-index: 5;
+}
+

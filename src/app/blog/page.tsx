@@ -2,14 +2,14 @@ import { createClient } from 'contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const client = createClient({
-  space: '', // Replace with your space ID
-  accessToken: '', // Replace with your access token
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
 });
 
 const BlogPage = async () => {
   // Fetching the content entries
   const res = await client.getEntries({
-    content_type: 'blogPage', // Replace with the actual content type ID
+    content_type: 'blogPage', 
   });
 
   const posts = res.items;
@@ -50,7 +50,7 @@ const BlogPage = async () => {
               {/* Render Image */}
               {post.fields.image && post.fields.image.fields.file && (
                 <img
-                  src={`https:${post.fields.image.fields.file.url}`} // Ensure it uses the full URL
+                  src={`https:${post.fields.image.fields.file.url}`} 
                   alt={post.fields.image.fields.title}
                   className="w-full h-auto mt-4"
                 />

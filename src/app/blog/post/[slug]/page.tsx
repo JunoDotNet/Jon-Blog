@@ -6,8 +6,8 @@ import { createClient } from 'contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const client = createClient({
-  space: 'gnid317kmek6',
-  accessToken: 'bHTRIOuu1YE_QHpnJ5WzbWQY414gA24O52X-liN_Vc0',
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID!,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN!,
 });
 
 const PostPage = () => {
