@@ -1,0 +1,303 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* For Chiarostd font */
+@font-face {
+  font-family: 'Chiarostd'; /* Custom name for Chiarostd font */
+  src: url('/fonts/chiarostd_b.otf') format('opentype'); /* Path to your Chiarostd .otf file */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* For Fot Rodin Pro font */
+@font-face {
+  font-family: 'FotRodinPro'; /* Custom name for Fot Rodin Pro font */
+  src: url('/fonts/fot-rodin-pro-db.otf') format('opentype'); /* Path to your Fot Rodin Pro .otf file */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  body {
+  font-family: 'FotRodinPro','Chiarostd', Arial, sans-serif;
+}
+
+
+}
+.font-chiarostd {
+  font-family: 'Chiarostd', Arial, sans-serif;
+}
+
+.font-fotrodin {
+  font-family: 'FotRodinPro', Arial, sans-serif;
+}
+
+
+@layer utilities {
+  .animate-slide-in-from-left {
+    animation: slide-in-left 0.5s forwards;
+  }
+  .animate-slide-in-from-right {
+    animation: slide-in-right 0.5s forwards;
+  }
+  .animate-slide-in-from-top {
+    animation: slide-in-top 0.5s forwards;
+  }
+  .animate-slide-in-from-bottom {
+    animation: slide-in-bottom 0.5s forwards;
+  }
+
+  @keyframes slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slide-in-top {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slide-in-bottom {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}
+
+.unstyled-button,
+.unstyled-button:hover,
+.unstyled-button:focus,
+.unstyled-button:active {
+  all: unset;
+  display: inline-block;
+  width: 27%;
+  height: 25%;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font: inherit;
+  color: inherit;
+  box-shadow: none;
+}
+
+.taskbar {
+  background: linear-gradient(
+    to bottom,
+    #d4d0c8 0%,
+    #c3c3c3 20%,
+    #a8a8a8 100%
+  );
+  border-top: 2px solid #7f7f7f;
+  box-shadow: inset 0 1px #fff, inset 0 -1px #404040;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.taskbar button {
+  background-color: #2e8b57;
+  color: white;
+  border: 2px outset #dcdcdc;
+  padding: 2px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.taskbar button:hover {
+  background-color: #3aa865;
+}
+
+
+
+/* === Window Frame === */
+.window {
+  width: 400px;
+  background-color: #ececec;
+  font-family: "Trebuchet MS", sans-serif;
+  border-radius: 8px 8px 0 0;
+  box-shadow:
+    inset -1px -1px #00138c,
+    inset 1px 1px #0831d9,
+    inset -2px -2px #001ea0,
+    inset 2px 2px #166aee,
+    inset -3px -3px #003bda,
+    inset 3px 3px #0855dd;
+  overflow: hidden;
+}
+
+/* === Title Bar === */
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 24px;
+  background: linear-gradient(
+    180deg,
+    #0997ff 0%,
+    #0053ee 8%,
+    #0050ee 40%,
+    #0066ff 88%,
+    #005bff 95%,
+    #003dd7 100%
+  );
+  padding: 0 4px;
+  color: white;
+  font-size: 13px;
+  text-shadow: 1px 1px #0f1089;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top: 1px solid #0831d9;
+  border-left: 1px solid #0831d9;
+  border-right: 1px solid #001ea0;
+  user-select: none;
+}
+
+.title-bar-text {
+  padding-left: 2px;
+  font-weight: bold;
+}
+
+.title-bar-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.title-bar-controls button {
+  width: 21px;
+  height: 21px;
+  background-color: #0050ee;
+  border: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  padding: 0;
+}
+
+.title-bar-controls button[aria-label="Close"] {
+  background-image: url("/xp%20icons/ICON/close.png");
+}
+
+.title-bar-controls button:hover {
+  filter: brightness(1.1);
+}
+.title-bar-controls button:active {
+  filter: brightness(0.85);
+}
+
+/* === Window Body === */
+.window-body {
+  padding: 10px;
+  background: #ececec;
+  color: black;
+  border: 2px  #7d9aff;
+  margin: 8px;
+}
+
+/* === Tabs === */
+menu[role="tablist"] {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+menu[role="tablist"] button {
+  background-color: #e0e0e0;
+  border: 2px outset #ffffff;
+  padding: 2px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+menu[role="tablist"] button[aria-selected="true"] {
+  background-color: #d0d0d0;
+  border: 2px inset #ffffff;
+}
+
+/* === Tab Panel === */
+article[role="tabpanel"] {
+  margin-bottom: 10px;
+}
+
+/* === Fieldset and Labels === */
+fieldset {
+  border: 2px groove #aaa;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+legend {
+  padding: 0 6px;
+  font-weight: bold;
+}
+
+/* === Field Rows === */
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+/* === Section Buttons (e.g., OK/Cancel) === */
+section.field-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+section.field-row button {
+  padding: 2px 12px;
+  border: 2px outset #fff;
+  background: #e0e0e0;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+section.field-row button:active {
+  border: 2px inset #fff;
+}
